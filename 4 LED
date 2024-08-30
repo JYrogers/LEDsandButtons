@@ -1,42 +1,25 @@
-#imports
 import board
 import digitalio as dio
 import time
 
-#setup / initialization
-led2 = dio.DigitalInOut(board.GP0)
-led2.direction = dio.Direction.OUTPUT
+# Setup / initialization
+def set_pin_led(pin):
+    led = dio.DigitalInOut(pin)
+    led.direction = dio.Direction.OUTPUT
+    return led
+led1 = set_pin_led(board.D2)
+led2 = set_pin_led(board.D3)
+led3 = set_pin_led(board.D4)
+led4 = set_pin_led(board.D5)
 
-led3 = dio.DigitalInOut(board.GP1)
-led3.direction = dio.Direction.OUTPUT
 
-led4 = dio.DigitalInOut(board.GP2)
-led4.direction = dio.Direction.OUTPUT
+def blink(led):
+    while True:
+        led.value = not led.value
+        time.sleep(0.1)
+blink(led1)
+blink(led2)
 
-led5 = dio.DigitalInOut(board.GP3)
-led5.direction = dio.Direction.OUTPUT
-
-#infinite loop
-while True:
-    led2.value = True
-    time.sleep(1)
-    led2.value = False
-    time.sleep(1)
-
-    led3.value = True
-    time.sleep(1)
-    led3.value = False
-    time.sleep(1)
-
-    led4.value = True
-    time.sleep(1)
-    led4.value = False
-    time.sleep(1)
-
-    led5.value = True
-    time.sleep(1)
-    led5.value = False
-    time.sleep(1)
 
 
 
