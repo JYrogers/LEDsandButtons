@@ -1,0 +1,42 @@
+#imports
+import board
+import digitalio as dio
+import time
+
+#setup / initialization
+led2 = dio.DigitalInOut(board.GP0)
+led2.direction = dio.Direction.OUTPUT
+
+led3 = dio.DigitalInOut(board.GP1)
+led3.direction = dio.Direction.OUTPUT
+
+led4 = dio.DigitalInOut(board.GP2)
+led4.direction = dio.Direction.OUTPUT
+
+led5 = dio.DigitalInOut(board.GP3)
+led5.direction = dio.Direction.OUTPUT
+
+#infinite loop
+while True:
+    led2.value = True
+    time.sleep(1)
+    led2.value = False
+    time.sleep(1)
+
+    led3.value = True
+    time.sleep(1)
+    led3.value = False
+    time.sleep(1)
+
+    led4.value = True
+    time.sleep(1)
+    led4.value = False
+    time.sleep(1)
+
+    led5.value = True
+    time.sleep(1)
+    led5.value = False
+    time.sleep(1)
+
+
+
