@@ -14,12 +14,16 @@ led4 = set_pin_led(board.D5)
 
 
 def blink(led):
-    while True:
         led.value = not led.value
         time.sleep(0.1)
-blink(led1)
-blink(led2)
-
-
-
+        led.value = not led.value
+        time.sleep(0.1)
+        
+        
+        
+while True:
+    blink(led1)
+    blink(led2)
+    blink(led3)
+    blink(led4)
 
